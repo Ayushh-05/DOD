@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOD| Department of Design</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="img/nsut_logo (1).png" alt="lol" class="logo">
+            <ul>
+                <li ><a  href="">HOME</a></li>
+                <li ><a  href="">ABOUT US</a></li>
+                <li ><a  href="">STUDENT WORKS</a></li>
+                <li ><a  href="">CAMPUS TOUR</a></li>
+                <li ><a  href="">CONTACT US</a></li>
+            </ul>
+            <img src="img/moon.png" alt="lol" id="icon">
+        </nav>
+        <div class="info">
+            <h1>Hello <span class="typing-anim"></span> of NSUT</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, eius? <br>Voluptates rem ipsum quam, eum ipsam ab, 
+                consectetur ea repudiandae id numquam cum. Beatae, voluptatibus!</p>
+            <a href="">CLICK HERE </a>
+        </div>
+        <div class="img-1">
+            <img src="img/pattern.png" alt="lol" class="back-img">
+            <img src="img/5595284.png" alt="lol" class="front-img">
+        </div>
+        <div class="api">
+            <p class="para">This Page was viewed </p>
+            <h1 id="count">0</h1>
+            <p class="para">times</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed(".typing-anim",{
+            strings: ["Designers", "Srishti","Lyric","Akhil","Ayush","Rishit","Ghelot"],
+            typeSpeed:100,
+            backSpeed:100,
+            loop: true
+
+        })
+
+        var icon = document.getElementById("icon");
+
+        icon.onclick = function(){
+            document.body.classList.toggle("dark-theme");
+            if (document.body.classList.contains("dark-theme")){
+                icon.src = "img/sun.png";
+            }else{
+                icon.src = "img/moon.png";
+
+            }
+        }
+
+        const countEl = document.getElementById("count");
+        countvisits();
+        function countvisits() {
+            fetch('https://api.countapi.xyz/update/DOD/design/?amount=1')
+            .then((res) => res.json())
+            .then((res) => {
+                countEl.innerHTML = res.value;
+            });
+        }
+
+    </script>
+</body>
+</html>
